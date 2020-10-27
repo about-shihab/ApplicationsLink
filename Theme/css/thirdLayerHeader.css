@@ -1,0 +1,94 @@
+﻿.half {
+    z-index: 0;
+    transform: skew(45deg);
+    position: fixed;
+    overflow: hidden;
+    height: 8%;
+    top: 0;
+    width: 90%;
+    background-color: #ff9d2f;
+    color: white;
+    left: -50%;
+    transition: transform 0.3s linear, z-index 0.3s step-end;
+}
+
+    .half:hover {
+        transition: transform 0.3s linear, z-index 0.3s step-start;
+        transform: translatex(20%) skew(45deg);
+        z-index: 1;
+    }
+
+    .half:hover ~ .half {
+        transition: transform 0.3s linear, z-index step-start;
+    }
+
+    .half:hover .half__txt {
+        transform: translatex(-20%) scale(1.2);
+        color:white;
+
+    }
+
+    .half:hover.half--second {
+        transform: translatex(-20%) skew(45deg);
+    }
+
+    .half:hover.half--second .half__txt {
+        transform: translatex(20%) scale(1.2);
+        color:white;
+    }
+
+.half--second {
+    color: white;
+    background-color: #ff6126;
+    left: 40%;
+    width:50%;
+}
+
+.half__content {
+    position: absolute;
+    transform: skew(-45deg);
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.half--first {
+    color: white;
+    right: 0;
+    width: 90%;
+}
+.half__content {
+    color: white;
+    right: 0;
+}
+
+.half__txt {
+    font: 20px cursive;
+    /*font-size: 1.5vw;*/
+    /*text-transform: uppercase;*/
+    font-family: sans-serif;
+    position: relative;
+    transition: transform 0.3s linear;
+    color: white;
+}
+
+
+.label-container {
+    position: fixed;
+    bottom: 48px;
+    right: 105px;
+    display: table;
+    visibility: hidden;
+}
+
+.label-text {
+    color: #FFF;
+    background: rgba(51,51,51,0.5);
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    border-radius: 6px;
+}

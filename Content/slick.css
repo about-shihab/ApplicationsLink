@@ -1,0 +1,337 @@
+/* Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+.slick-track {
+    margin-left: 65px;
+    margin-right: 65px;
+  
+}
+.slick-slide {
+    outline: none
+}
+
+
+.favLink {
+    font-size: 10px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.item {
+    width: 20rem;
+    height: 5rem;
+    font-size: 18px;
+    text-align: center;
+    line-height: 5rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+    margin: 3rem;
+    border: none;
+    background-color: #e79797;
+    color:white
+}
+
+    .item::before,
+    .item::after {
+        content: '';
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 0;
+        left: 0;
+        transition: 0.3s;
+    }
+
+    .item::before {
+        background-color: #e79797;
+        z-index: -1;
+        box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+
+    .item::after {
+        background-color: goldenrod;
+        transform: translate(1.5rem, 1.5rem);
+        z-index: -2;
+    }
+
+    .item:hover {
+        transform: translate(1.5rem, 1.5rem);
+        color: white;
+        cursor: pointer;
+    }
+
+        .item:hover::before {
+            background-color: goldenrod;
+        }
+
+        .item:hover::after {
+            background-color: #e79797;
+            transform: translate(-1.5rem, -1.5rem);
+        }
+
+
+/*fav link button*/
+
+
+.btn-1 {
+    background-color: #F27935;
+}
+
+    .btn-1 .round {
+        background-color: #f59965;
+    }
+
+.btn-2 {
+    background-color: #00AFD1;
+}
+
+    .btn-2 .round {
+        background-color: #00c4eb;
+    }
+
+.btn-3 {
+    background-color: crimson;
+}
+
+    .btn-3 .round {
+        background-color: #f56991;
+    }
+
+.anchor{
+    text-decoration: none;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    padding: 12px 53px 12px 23px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: bold;
+    position: relative;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.favSpan {
+    position: relative;
+    z-index: 3;
+}
+
+.anchor .round {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    z-index: 2;
+}
+
+.anchor .round i {
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: 50%;
+    margin-left: -4px;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.txt {
+    font-size: 11px;
+    line-height: 0.45;
+
+}
+.type-1{
+    margin-right:10px;
+}
+.type-1 a:hover {
+    padding-left: 48px;
+    padding-right: 28px;
+}
+
+    /*.type-1 a:hover .closeBtn {
+        display: block;
+        background-color:red;
+    }*/
+
+    .type-1 a:hover .round {
+        width: calc(100% - 6px);
+        -moz-border-radius: 30px;
+        -webkit-border-radius: 30px;
+        border-radius: 30px;
+    }
+
+        .type-1 a:hover .round i {
+            left: 12%;
+        }
+
+.btn-4 {
+    background-color: #a326c9;
+}
+
+    .btn-4 .round {
+        background-color: #d16cf0;
+    }
+
+.btn-5 {
+    background-color: #365218;
+}
+
+    .btn-5 .round {
+        background-color: #6eab2c;
+    }
+
+.btn-6 {
+    background-color: #1bd194;
+}
+
+    .btn-6 .round {
+        background-color: #37f0b2;
+    }
+
+.btn-7 {
+    background-color: #c9db25;
+}
+
+    .btn-7 .round {
+        background-color: #e1f059;
+    }
+
+.btn-8 {
+    background-color: #ad9611;
+}
+
+    .btn-8 .round {
+        background-color: #edd02b;
+    }

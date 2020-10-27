@@ -1,0 +1,167 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ApplicationsLink.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en" class="app">
+<!-- Mirrored from flatfull.com/themes/note/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Sep 2019 06:57:18 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <title>Applications Link</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" href="../Theme/css/font.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../Theme/css/app.v1.css" type="text/css" />
+     <script src="../Scripts/jquery-3.4.1.js"></script>
+    <script src="../Scripts/jquery-ui.js"></script>
+
+  
+
+</head>
+
+
+<body class="">
+    <style type="text/css">
+      
+        .half {
+            z-index: 0;
+            transform: skew(45deg);
+            position: fixed;
+            overflow: hidden;
+            height: 8%;
+            top: 0;
+            width: 100%;
+            background-color: purple;
+            color: white;
+            left: -50%;
+            transition: transform 0.3s linear, z-index 0.3s step-end;
+        }
+
+            .half:hover {
+                transition: transform 0.3s linear, z-index 0.3s step-start;
+                transform: translatex(20%) skew(45deg);
+                z-index: 1;
+            }
+
+                .half:hover ~ .half {
+                    transition: transform 0.3s linear, z-index step-start;
+                }
+
+                .half:hover .half__txt {
+                    transform: translatex(-20%) scale(1.2);
+                    color: white;
+                }
+
+                .half:hover.half--second {
+                    transform: translatex(-20%) skew(45deg);
+                }
+
+                    .half:hover.half--second .half__txt {
+                        transform: translatex(20%) scale(1.2);
+                        color: white;
+                    }
+
+        .half--second {
+            color: white;
+            background-color: deeppink;
+            left: 50%;
+            width: 70%;
+        }
+
+        .half__content {
+            position: absolute;
+            transform: skew(-45deg);
+            display: flex;
+            width: 50%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .half--first {
+            color: white;
+            right: 0;
+            width: 100%;
+        }
+
+        .half__content {
+            color: white;
+            right: 0;
+        }
+
+        .half__txt {
+            font: 20px cursive;
+            font-size: 1.5vw;
+            text-transform: uppercase;
+            font-family: cursive;
+            position: relative;
+            transition: transform 0.3s linear;
+            color: white;
+        }
+
+
+        .label-container {
+            position: fixed;
+            bottom: 48px;
+            right: 105px;
+            display: table;
+            visibility: hidden;
+        }
+
+        .label-text {
+            color: #FFF;
+            background: rgba(51,51,51,0.5);
+            display: table-cell;
+            vertical-align: middle;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs myNav">
+
+            <div class="col-md-12">
+                <a class="half half--first" href="#1">
+                    <div class="half__content" id="firstParticularNm">
+                        <p class="half__txt">Southeast Bank Limited</p>
+                    </div>
+                </a>
+                <a class="half half--second" href="#2">
+                    <div class="half__content" style="width: 120%" id="ScndParticularNm">
+                        <p class="half__txt">Applications Link</p>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <!-- /content-->
+                <section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder" style="padding-left: 26px;/*background-image: url('../LinkImage/background.jpg');*/">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </section>
+                    </section>
+                </section>
+                <!-- /content-->
+
+
+
+            </section>
+        </section>
+        </section>
+
+
+
+</body>
+
+</html>

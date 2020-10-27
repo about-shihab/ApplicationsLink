@@ -1,0 +1,47 @@
+-- Create table
+create table SEBL_APP_LINK
+(
+  link_id      NUMBER(4) not null,
+  link_title   NVARCHAR2(100) not null,
+  catg_id      NUMBER(4) not null,
+  link_url     NVARCHAR2(100),
+  user_flag    NUMBER(1) default 2 not null,
+  make_by      NVARCHAR2(10),
+  make_date    DATE default sysdate not null,
+  link_img_url NVARCHAR2(100),
+  status       NUMBER(1) default 1 not null
+)
+tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column SEBL_APP_LINK.user_flag
+  is '0: Branch; 1: HO; 2: Both;';
+comment on column SEBL_APP_LINK.status
+  is '1=active, 0=inactive';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table SEBL_APP_LINK
+  add constraint PK_LINK_ID primary key (LINK_ID)
+  using index 
+  tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table SEBL_APP_LINK
+  add constraint FK_CATG_ID foreign key (CATG_ID)
+  references SEBL_LINK_CATG (CATG_ID);

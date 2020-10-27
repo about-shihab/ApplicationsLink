@@ -1,0 +1,34 @@
+-- Create table
+create table SEBL_LINK_CATG
+(
+  catg_id   NUMBER(4) not null,
+  catg_name NVARCHAR2(100) not null,
+  make_by   NVARCHAR2(10) not null,
+  make_dt   DATE default sysdate not null
+)
+tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table SEBL_LINK_CATG
+  add constraint PK_CATG_ID primary key (CATG_ID)
+  using index 
+  tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );

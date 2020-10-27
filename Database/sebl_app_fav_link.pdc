@@ -1,0 +1,26 @@
+-- Create table
+create table SEBL_APP_FAV_LINK
+(
+  ip_address VARCHAR2(32) not null,
+  link_id    NUMBER(4) not null,
+  make_dt    DATE default sysdate not null,
+  status     NUMBER(1) default 1 not null
+)
+tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column SEBL_APP_FAV_LINK.status
+  is 'active=1; inactive=0;';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table SEBL_APP_FAV_LINK
+  add constraint FK foreign key (LINK_ID)
+  references SEBL_APP_LINK (LINK_ID);

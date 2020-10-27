@@ -1,0 +1,212 @@
+﻿.modal {
+    overflow-y: auto;
+    background-color: #eee;
+}
+
+.modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.modal-body {
+    min-width: 90%;
+    min-height: 100%;
+    padding-top: 2px;
+    background-color: #eee;
+}
+
+.modal-content {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 0;
+    /*padding: 10px;*/
+}
+
+.ui-datepicker-month {
+    color: black;
+}
+
+.ui-datepicker-year {
+    color: black;
+}
+
+.fade-scale {
+    transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all .25s linear;
+    -o-transition: all .25s linear;
+    transition: all .25s linear;
+}
+
+    .fade-scale.in {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+.myheader {
+    /*background-image: url("../Theme/banner/bg1.jpg");*/
+    background-image: url("../banner/mb (6).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 5px;
+}
+
+.topTen {
+    background-image: url("../images/tobTenBanner.png");
+    background-size: 100%; /* To fill the dimensions of container (button), or */
+    background-size: 40px auto;
+    background-color: white;
+    border: none;
+}
+
+
+table.dataTable.no-footer {
+    border-bottom: none;
+}
+
+#thirdLayerTable .dataTables_scrollHeadInner {
+    color: white;
+}
+
+#pageLoad {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.99;
+    background-color: #3E73A5;
+    z-index: 99;
+    text-align: center;
+}
+
+#pageLoad-image {
+    position: absolute;
+    top: 100px;
+    left: 240px;
+    z-index: 100;
+    margin-top: 4%;
+}
+
+
+/*arcui*/
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(26, 54, 126, 0.125);
+    border-radius: .25rem;
+}
+
+.ui-theme-settings .theme-settings__inner {
+    background: #eee;
+}
+
+.shadow {
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+}
+
+.topHead {
+    position: relative;
+    background-image: linear-gradient(#ff9d2f, #ff6126);
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+}
+
+.topH {
+    margin: 0;
+    padding: 10x, 0;
+    font: 34px cursive;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.pnlHd {
+    background-color: mistyrose;
+    color: darkslategray;
+}
+
+/*back style button*/
+.outer {
+    position: relative;
+    margin: auto;
+    width: 47px;
+    cursor: pointer;
+    background-color: darkslategray;
+}
+
+.inner {
+    width: inherit;
+    text-align: center;
+}
+
+.backLabel {
+    font-size: .8em;
+    line-height: 4em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all .3s ease-in;
+    opacity: 0;
+    cursor: pointer;
+    font-weight:bold;
+}
+
+.inner:before, .inner:after {
+    position: absolute;
+    content: '';
+    height: 6px;
+    width: inherit;
+    background: red;
+    left: 0;
+    transition: all .3s ease-in;
+}
+
+.inner:before {
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.inner:after {
+    bottom: 50%;
+    transform: rotate(-45deg);
+}
+
+.outer:hover label {
+    opacity: 1;
+}
+
+.outer:hover .inner:before,
+.outer:hover .inner:after {
+    transform: rotate(0);
+}
+
+.outer:hover .inner:before {
+    top: 0;
+}
+
+.outer:hover .inner:after {
+    bottom: 0;
+}
+.navCircle {
+    background-color: white;
+    /*background-image: url("../banner/headerImg.jpg");*/
+    width: 30vw;
+    height: 12vh;
+    margin-left: 30vw;
+    margin-bottom: 20px;
+    border-radius: 50%/100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-box-shadow: 10px 10px 41px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 41px -10px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 41px -10px rgba(0,0,0,0.75);
+}

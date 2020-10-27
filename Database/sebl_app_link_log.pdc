@@ -1,0 +1,15 @@
+-- Create table
+create table SEBL_APP_LINK_LOG
+(
+  ip_address VARCHAR2(32) not null,
+  link_id    NUMBER(4) not null,
+  access_dt  DATE default sysdate not null
+)
+tablespace BU_SYSTEM_TBS
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table SEBL_APP_LINK_LOG
+  add constraint FK_SEBL_APP_LINK_LOG foreign key (LINK_ID)
+  references SEBL_APP_LINK (LINK_ID);
