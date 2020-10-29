@@ -407,7 +407,7 @@ function SetCardCategory(jsonData) {
             //console.log(previousRowLength);
             //console.log(currentRowLength);
             //console.log(nextRowLength);
-            if ((previousRowLength - currentRowLength) >= nextRowLength) {
+            if ((previousRowLength - currentRowLength) > nextRowLength) {
                 c -= 1;
             }
 

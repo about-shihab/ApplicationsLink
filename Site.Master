@@ -149,13 +149,24 @@
                         <section class="scrollable padder" style="padding-left: 26px;/*background-image: url('../LinkImage/background.jpg');*/">
                             <asp:ContentPlaceHolder ID="MainContent" runat="server">
                             </asp:ContentPlaceHolder>
+                            <footer class="page-footer font-small blue">
+
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">
+                        © 2020 Developed By:
+                        <img src="../LinkImage/sebl_ico.ico" width="18px"/>
+                        <a href="https://www.southeastbank.com.bd/">IT Division</a>
+                    </div>
+                    <!-- Copyright -->
+
+                </footer>
                         </section>
                     </section>
                 </section>
                 <!-- /content-->
 
 
-
+                
             </section>
         </section>
         </section>

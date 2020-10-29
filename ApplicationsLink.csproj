@@ -142,6 +142,7 @@
     <Content Include="LinkImage\inventory.png" />
     <Content Include="LinkImage\payment.png" />
     <Content Include="LinkImage\scheduleStatement.svg" />
+    <Content Include="LinkImage\sebl_ico.ico" />
     <Content Include="LinkImage\SORM.jpg" />
     <Content Include="LinkImage\tradewave.jpg" />
     <Content Include="LinkImage\utility.png" />

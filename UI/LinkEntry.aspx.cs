@@ -57,7 +57,7 @@ namespace ApplicationsLink.UI
                 try
                 {
                     string filename = Path.GetFileName(FileUploadControl.FileName);
-                    string filePath = Server.MapPath("~/LinkImage/") + DateTime.Now.ToString("ddMMyyyyhhmmss")+ linkTitleTextBox.Text.Trim() + filename.Substring(filename.LastIndexOf("."));
+                    string filePath = Server.MapPath("~/LinkImage/") + DateTime.Now.ToString("ddMMyyyyhhmmss") + filename.Substring(filename.LastIndexOf("."));
                     FileUploadControl.SaveAs(filePath);
                     Dictionary<string, object> inputDic = new Dictionary<string, object>();
                     inputDic.Add("puser_flag", linkUserDropDownListChosen.SelectedValue);
@@ -91,7 +91,7 @@ namespace ApplicationsLink.UI
             }
 
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + errorMsg + "'); window.location='" +
-                                                            Request.ApplicationPath + "../UI/LinkEntry.aspx';", true);
+                                                            Request.ApplicationPath + "/UI/LinkEntry.aspx';", true);
 
             //Response.Redirect("LinkEntry.aspx");
 
@@ -119,7 +119,7 @@ namespace ApplicationsLink.UI
 
             }
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + errorMsg + "'); window.location='" +
-                                                            Request.ApplicationPath + "../UI/LinkEntry.aspx';", true);
+                                                            Request.ApplicationPath + "/UI/LinkEntry.aspx';", true);
             //Response.Redirect("LinkEntry.aspx");
 
         }
