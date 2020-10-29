@@ -23,12 +23,37 @@
             <div class="panel-heading">Add Category</div>
             <div class="panel-body">
                 <div class="form-inline row  input-item">
-                        <div class="col-md-4 myLabel">
+                        <div class="col-md-2 myLabel">
                             <label style="display: block">Category Name</label>
                         </div>
-                        <div class="col-md-8 form-group">
+                        <div class="col-md-6 form-group">
 
                             <asp:TextBox ID="catgTextBox" CssClass="form-control   textboxHeight" runat="server"></asp:TextBox>
+                            
+
+                        </div>
+
+                    </div>
+                
+                <div class="form-inline   input-item">
+                        <div class="col-md-2 myLabel">
+                            <label style="display: block">Color 1</label>
+                        </div>
+                        <div class="col-md-2 form-group">
+
+                            <asp:TextBox ID="color1TextBox" CssClass="form-control   textboxHeight" runat="server"></asp:TextBox>
+                            
+
+                        </div>
+
+                    </div>
+                <div class="form-inline   input-item">
+                        <div class="col-md-1 myLabel">
+                            <label style="display: block">Color 2</label>
+                        </div>
+                        <div class="col-md-2 form-group">
+
+                            <asp:TextBox ID="color2TextBox" CssClass="form-control   textboxHeight" runat="server"></asp:TextBox>
                             
 
                         </div>
@@ -82,7 +107,7 @@
                         <div class="col-md-8 form-group">
                             <asp:FileUpload CssClass="form-control-file" ID="FileUploadControl" runat="server" />
                         </div>
-                         <span style="font-size:8px; color:red;"> Ex. Resolution (1000X500)</span>
+                         <span style="font-size:9px; color:red;"> Width = height X 2.3</span>
                     </div>
                 </div>
                 <div class="col-md-6">

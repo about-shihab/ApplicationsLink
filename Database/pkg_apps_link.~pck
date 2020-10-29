@@ -68,6 +68,17 @@ CREATE OR REPLACE PACKAGE pkg_apps_link
             );
 
   -------------------------------------------------------------------------------------------
+  PROCEDURE fsp_set_link_catg
+            (
+              pcatg_name       IN sebl_link_catg.catg_name%TYPE
+            , pcolor1          IN sebl_link_catg.color1%Type
+            , pcolor2          IN sebl_link_catg.color2%Type
+            , pmake_by         IN sebl_link_catg.make_by%Type
+            , perrormsg       OUT varchar2
+
+            );
+
+  -------------------------------------------------------------------------------------------
   PROCEDURE rsp_get_link_catg
             (
                presults        OUT SYS_REFCURSOR
@@ -166,6 +177,8 @@ CREATE OR REPLACE PACKAGE BODY pkg_apps_link
            , l.user_flag
            , c.catg_id
            , c.catg_name
+           , c.color1
+           , c.color2
            , (CASE WHEN f.link_id IS NULL THEN 0 ELSE 1 END) is_fav
            , COUNT(1) OVER (PARTITION BY l.catg_id) AS my_rank
         FROM sebl_app_link l
@@ -353,6 +366,51 @@ CREATE OR REPLACE PACKAGE BODY pkg_apps_link
    
   END rsp_get_link_log;
 
+  -------------------------------------------------------------------------------------------
+  PROCEDURE fsp_set_link_catg
+            (
+              pcatg_name       IN sebl_link_catg.catg_name%TYPE
+            , pcolor1          IN sebl_link_catg.color1%Type
+            , pcolor2          IN sebl_link_catg.color2%Type
+            , pmake_by         IN sebl_link_catg.make_by%Type
+            , perrormsg       OUT varchar2
+
+            )
+  IS
+   v_max_catg_id             INTEGER:=0;
+   v_count                   INTEGER := 0;
+  BEGIN
+    SELECT COUNT(1)
+       INTO v_count
+       FROM sebl_link_catg t
+     WHERE t.catg_name = pcatg_name;
+     
+     IF v_count>0 THEN
+       UPDATE sebl_link_catg t
+          SET t.color1 = pcolor1
+            , t.color2 = pcolor2
+            , t.make_by = pmake_by
+            , t.make_dt = SYSDATE
+        WHERE t.catg_name = pcatg_name;
+     ELSE
+       SELECT MAX(t.catg_id)
+         INTO v_max_catg_id
+         FROM sebl_link_catg t;
+           
+       v_max_catg_id := v_max_catg_id+1;
+       INSERT INTO sebl_link_catg
+         (catg_id, catg_name, color1, color2, make_by, make_dt)
+       VALUES
+         (v_max_catg_id, pcatg_name, pcolor1, pcolor2, pmake_by, SYSDATE);
+     END IF;  
+  
+    
+     COMMIT;
+      
+      EXCEPTION
+        WHEN OTHERS THEN
+            perrormsg := SQLERRM;
+  END fsp_set_link_catg;
   -------------------------------------------------------------------------------------------
   PROCEDURE rsp_get_link_catg
             (

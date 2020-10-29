@@ -4,9 +4,7 @@ create table SEBL_LINK_CATG
   catg_id   NUMBER(4) not null,
   catg_name NVARCHAR2(100) not null,
   make_by   NVARCHAR2(10) not null,
-  make_dt   DATE default sysdate not null,
-  color1    NVARCHAR2(20),
-  color2    NVARCHAR2(20)
+  make_dt   DATE default sysdate not null
 )
 tablespace BU_SYSTEM_TBS
   pctfree 10

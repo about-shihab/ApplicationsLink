@@ -181,7 +181,7 @@ function LoadAllLink() {
     AjaxPostRequest(url, parameter, function (response) {
         var jsonData = JSON.parse(response.d);
         if (jsonData.length != 0) {
-
+            
             SetCardCategory(jsonData);
         } else { }
     });
@@ -285,7 +285,7 @@ function LoadAllRecentLink() {
 };
 
 function SetCardCategory(jsonData) {
-    //console.log(jsonData);
+    console.log(jsonData);
     var categories = [];
     var linkCategory = {};
 
@@ -302,7 +302,9 @@ function SetCardCategory(jsonData) {
 
 
     //console.log(categories);
-    var cardColor = ['Gradient-crimson', 'yellowgreen', 'Gradient-mantle', 'Gradient-blue', 'Gradient-green', 'Amber', 'Gradient-petrichor'];//'Indigo',
+    var cardColor = ['Gradient-crimson', 'yellowgreen', 'Gradient-mantle', 'Gradient-blue', 'Gradient-green', 'Gradient-Amber', 'Gradient-petrichor'];//'Indigo',
+    let cardColor1 = "blue";
+    let cardColor2 = "violet";
     //var cardColor = ['crimson','kyoto'];
     let cardBackground = ['#FFCDD2', '#F3E5F5', '#FCE4EC', '#E8EAF6', '#E3F2FD', '#E0F7FA', '#E0F2F1', '#E8F5E9', '#FFF8E1', '#FBE9E7'];//'Pink','Red', 'Purple',
     let cardSinglecolor = 'Grey';
@@ -317,6 +319,8 @@ function SetCardCategory(jsonData) {
         if (c % 3 == 0) {
             cardLinksHtml += '<div class="row">';
         }
+
+
 
         //k = getRandomArbitrary(0, 10);
         f = getRandomArbitrary(0, 3);
@@ -346,8 +350,13 @@ function SetCardCategory(jsonData) {
             if (r % 2 == 0) {
                 cardLinksHtml += '<div class="row">';
             }
+            cardColor1 = '' + linkJsonData[j].COLOR1;
+            cardColor2 = '' + linkJsonData[j].COLOR2;
+            let cardGradientColor = 'linear-gradient(to right, ' + cardColor1 + ' 0%, ' + cardColor2+' 100%)';
+
             let linkImageUrl = '' + linkJsonData[j].LINK_IMG_URL;
-            linkImageUrl = '../LinkImage/'+linkImageUrl.substring(linkImageUrl.lastIndexOf('\\')+1);
+            linkImageUrl = '../LinkImage/' + linkImageUrl.substring(linkImageUrl.lastIndexOf('\\') + 1);
+
             cardLinksHtml += '<div class="col-md-6  animated ' + fadeAnimation[f] + '"  style = "animation-duration: 2s" >' +
                 '<div class="card LinksCard">' +
                 '<div class="card-img" style="background-image: url(' + linkImageUrl +');background-size: contain;">' +
@@ -364,7 +373,8 @@ function SetCardCategory(jsonData) {
                 '</div>' +
                 '</div>' +
                 '<a  class="linkClick" style="text-decoration:none; display: block;color: #202927;" href="' + linkJsonData[j].LINK_URL + '"  target="_blank">' +
-                '<div class="card-content ' + cardColor[k] + '" >' +
+                //'<div class="card-content ' + cardColor[k] + '" >' +
+                '<div class="card-content " style="background: '+cardGradientColor+';" >' +
                 '<h2>' + linkJsonData[j].LINK_TITLE + '</h2>' +
                 '</div>' +
                 '</a>' +

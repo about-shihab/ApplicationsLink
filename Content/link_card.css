@@ -161,7 +161,8 @@
         background-color: #FF5722;
     }
     .card-content.yellowgreen {
-        background-color: yellowgreen;
+        /*background-color: yellowgreen;*/
+        background-image: linear-gradient(to left, yellowgreen 0%, orange 100%);
     }
     .card-content.darkblue {
         background-color: darkblue;
@@ -181,6 +182,10 @@
     }
     .card-content.Gradient-mantle {
         background: linear-gradient(to left, #24C6DC 0%, #514A9D 100%);
+
+    }
+    .card-content.Gradient-Amber {
+        background: linear-gradient(to left, #FFC107 0%, red 100%);
     }
 /*.card-content:hover::before, card-content:hover::after {
     display: block;

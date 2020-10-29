@@ -32,17 +32,16 @@ namespace ApplicationsLink.UI
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
-            string[] validFileTypes = { "png", "jpg", "jpeg"};
+            string[] validFileTypes = { ".png", ".jpg", ".jpeg",".gif","svg"};
             string ext = System.IO.Path.GetExtension(FileUploadControl.PostedFile.FileName);
-
+            
             bool isValidFile = false;
 
             for (int i = 0; i < validFileTypes.Length; i++)
 
             {
 
-                if (ext == "." + validFileTypes[i])
-
+                if (ext.ToLower().Equals( validFileTypes[i]))
                 {
 
                     isValidFile = true;
@@ -58,7 +57,7 @@ namespace ApplicationsLink.UI
                 try
                 {
                     string filename = Path.GetFileName(FileUploadControl.FileName);
-                    string filePath = Server.MapPath("~/LinkImage/") + DateTime.Now.ToString("ddMMyyyyhhmmss") + filename;
+                    string filePath = Server.MapPath("~/LinkImage/") + DateTime.Now.ToString("ddMMyyyyhhmmss")+ linkTitleTextBox.Text.Trim() + filename.Substring(filename.LastIndexOf("."));
                     FileUploadControl.SaveAs(filePath);
                     Dictionary<string, object> inputDic = new Dictionary<string, object>();
                     inputDic.Add("puser_flag", linkUserDropDownListChosen.SelectedValue);
@@ -87,11 +86,13 @@ namespace ApplicationsLink.UI
             }
             else
             {
-                errorMsg = "Upload Only Image File";
+                errorMsg = "Upload Only Image File (.png, .jpg, .jpeg, .svg, .gif)";
 
             }
 
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('"+errorMsg+"');", true);
+
+            Response.Redirect("LinkEntry.aspx");
 
         }
 
@@ -101,6 +102,8 @@ namespace ApplicationsLink.UI
             Dictionary<string, object> inputDic = new Dictionary<string, object>();
             
             inputDic.Add("pcatg_name", catgTextBox.Text.Trim());
+            inputDic.Add("pcolor1", color1TextBox.Text.Trim());
+            inputDic.Add("pcolor2", color2TextBox.Text.Trim());
             inputDic.Add("pmake_by", "Admin");
             string errorMsg = string.Empty;
             try
@@ -115,6 +118,7 @@ namespace ApplicationsLink.UI
 
             }
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + errorMsg + "');", true);
+            Response.Redirect("LinkEntry.aspx");
 
         }
     }
