@@ -294,6 +294,8 @@ function SetCardCategory(jsonData) {
 
             linkCategory.CATG_ID = jsonData[i].CATG_ID;
             linkCategory.CATG_NAME = jsonData[i].CATG_NAME;
+            linkCategory.COLOR1 = jsonData[i].COLOR1;
+            linkCategory.COLOR2 = jsonData[i].COLOR2;
             categories.push(linkCategory);
             linkCategory = {};
 
@@ -320,17 +322,21 @@ function SetCardCategory(jsonData) {
             cardLinksHtml += '<div class="row">';
         }
 
+        cardColor1 = '' + categories[i].COLOR1;
+        cardColor2 = '' + categories[i].COLOR2;
+        let cardGradientColor = 'linear-gradient(to right, ' + cardColor1 + ' 0%, ' + cardColor2 + ' 100%)';
 
 
         //k = getRandomArbitrary(0, 10);
         f = getRandomArbitrary(0, 3);
         //console.log(k);
         cardLinksHtml += '<div class="col-md-4  animated ' + fadeAnimation[f] + '" style="animation-duration: 1s">' +
-            '<section class="panel panel-default " style="border-radius:30px; background-color:' + cardBackSinglecolor + ';">' +
+            '<section class="panel panel-default " style="border-radius:30px; background:' + cardBackSinglecolor + ';">' +
             '<header class="panel-heading lt no-border ">' +
             '<div class="clearfix"><div class="clear">' +
+            //'<article class="material-card mc-active  shadow" style="background:' + cardGradientColor+'">' +
             '<article class="material-card ' + cardSinglecolor + ' mc-active  shadow">' +
-            '<h2><strong><i class="fa fa-fw fa-star"></i> ';
+            '<h2 style="background:' + cardGradientColor+';"><strong><i class="fa fa-fw fa-star"></i> ';
         cardLinksHtml += categories[i].CATG_NAME;
         cardLinksHtml += '</strong> </h2 ></article > </div > </div > </header > <div class="panel-body ">';
         linkJsonData = jsonData.filter(element => element.CATG_ID == categories[i].CATG_ID);
@@ -350,9 +356,7 @@ function SetCardCategory(jsonData) {
             if (r % 2 == 0) {
                 cardLinksHtml += '<div class="row">';
             }
-            cardColor1 = '' + linkJsonData[j].COLOR1;
-            cardColor2 = '' + linkJsonData[j].COLOR2;
-            let cardGradientColor = 'linear-gradient(to right, ' + cardColor1 + ' 0%, ' + cardColor2+' 100%)';
+            
 
             let linkImageUrl = '' + linkJsonData[j].LINK_IMG_URL;
             linkImageUrl = '../LinkImage/' + linkImageUrl.substring(linkImageUrl.lastIndexOf('\\') + 1);

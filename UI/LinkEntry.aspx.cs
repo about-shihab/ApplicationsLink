@@ -90,9 +90,10 @@ namespace ApplicationsLink.UI
 
             }
 
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('"+errorMsg+"');", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + errorMsg + "'); window.location='" +
+                                                            Request.ApplicationPath + "../UI/LinkEntry.aspx';", true);
 
-            Response.Redirect("LinkEntry.aspx");
+            //Response.Redirect("LinkEntry.aspx");
 
         }
 
@@ -117,8 +118,9 @@ namespace ApplicationsLink.UI
                 errorMsg = "Error Occured. Enter input data properly";
 
             }
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + errorMsg + "');", true);
-            Response.Redirect("LinkEntry.aspx");
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + errorMsg + "'); window.location='" +
+                                                            Request.ApplicationPath + "../UI/LinkEntry.aspx';", true);
+            //Response.Redirect("LinkEntry.aspx");
 
         }
     }

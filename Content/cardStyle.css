@@ -390,14 +390,9 @@
         border-left-color: transparent;
     }
 
-.material-card.Blue-Grey.mc-active h2:before {
-    border-top-color: transparent;
-    border-right-color: #607D8B;
-    border-bottom-color: #607D8B;
-    border-left-color: transparent;
-}
 
-.material-card.Blue-Grey.mc-active h2:after {
+
+.material-card.Blue-Grey.mc-active h2 {
     border-top-color: #263238;
     border-right-color: #263238;
     border-bottom-color: transparent;
@@ -1408,6 +1403,7 @@
         border-right-color: #212121;
         border-bottom-color: #212121;
         border-left-color: transparent;
+        opacity:0;
     }
 
 .material-card.Grey.mc-active h2:before {
